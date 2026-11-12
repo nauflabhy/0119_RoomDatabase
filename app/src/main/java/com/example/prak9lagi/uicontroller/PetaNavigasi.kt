@@ -25,3 +25,13 @@ import com.example.prak9lagi.view.HomeScreen
 fun SiswaApp(navController: NavHostController = rememberNavController()){
     HostNavigasi(navController = navController)
 }
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun SiswaTopAppBar(
+    title: String,
+    canNavigateBack: Boolean,
+    modifier: Modifier = Modifier,
+    scrollBehavior: TopAppBarScrollBehavior? = null,
+    navigateUp: () -> Unit = {}
+)
