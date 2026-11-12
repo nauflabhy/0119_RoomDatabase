@@ -20,3 +20,8 @@ import com.example.prak9lagi.view.DestinasiEntry
 import com.example.prak9lagi.view.DestinasiHome
 import com.example.prak9lagi.view.EntrySiswaScreen
 import com.example.prak9lagi.view.HomeScreen
+
+@Composable
+fun SiswaApp(navController: NavHostController = rememberNavController()){
+    HostNavigasi(navController = navController)
+}
