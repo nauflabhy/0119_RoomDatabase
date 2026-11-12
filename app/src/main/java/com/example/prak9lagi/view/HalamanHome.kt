@@ -32,9 +32,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.pertemuan9.R
-import com.example.pertemuan9.room.Siswa
-import com.example.pertemuan9.uicontroller.DestinasiNavigasi
-import com.example.pertemuan9.uicontroller.SiswaTopAppBar
-import com.example.pertemuan9.viewmodel.HomeViewModel
-import com.example.pertemuan9.viewmodel.PenyediaViewModel
+import com.example.prak9lagi.R
+import com.example.prak9lagi.room.Siswa
+import com.example.prak9lagi.uicontroller.DestinasiNavigasi
+import com.example.prak9lagi.uicontroller.SiswaTopAppBar
+import com.example.prak9lagi.viewmodel.HomeViewModel
+import com.example.prak9lagi.viewmodel.PenyediaViewModel
