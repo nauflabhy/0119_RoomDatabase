@@ -10,6 +10,7 @@ composeBom = "2026.02.01"
 room = "2.8.4"
 kspver = "2.3.13"
 room3Common = "3.0.3"
+kotlin = "2.1.10"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -41,3 +42,4 @@ room = ["room-runtime", "room-ktx"]
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "kspver" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
