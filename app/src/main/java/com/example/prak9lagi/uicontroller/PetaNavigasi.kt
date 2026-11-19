@@ -64,11 +64,29 @@ fun HostNavigasi(
     ) {
         composable(DestinasiHome.route) {
             HomeScreen(
-                navigateToItemEntry = { navController.navigate(DestinasiEntry.route) }
+                navigateToItemEntry = { navController.navigate(DestinasiEntry.route)
+                navigateToItemUpdate = {
+                    navController.navigate("${DestinationDetailSiswa.route}/${it}")}
             )
         }
         composable(DestinasiEntry.route) {
             EntrySiswaScreen(navigateBack = { navController.popBackStack() })
-        }
+
+                    composable(route = DestinationDetailSiswa.routeWithArgs,
+                        arguments = listOf(navArgument( name = itemIdArg){
+                            type = NavType.IntType
+                        })
+                    ) {
+                        DetailSiswaScreen(
+                            navigateToEditItem = {navController.navigate( "${DestinationDetailSiswa.route}/$it")},
+                        navigateBack = { navController.navigateUp() })
+                    }
+                    composable(route = DestinationEditSiswa.routeWithArgs,
+                        arguments = listOf(navArgument(DestinasiEditSiswa.itemArg){
+                            type= NavType.IntType})){
+                        EditSiswaScreen(
+                            navigateBack = {navController.popBackStack()},
+                            onNavigateUp = { navController.navigateUp()})
+                    }
     }
 }
