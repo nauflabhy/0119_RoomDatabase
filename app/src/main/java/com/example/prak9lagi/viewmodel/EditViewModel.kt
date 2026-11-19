@@ -1,12 +1,13 @@
 package com.example.prak9lagi.viewmodel
 
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.prak9lagi.repositori.RepositoriSiswa
-import com.example.prak9lagi.uicontroller.DestinasiDetailSiswa
+import com.example.prak9lagi.uicontroller.DestinasiEditSiswa
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
@@ -19,22 +20,22 @@ class EditViewModel(
     var uiStateSiswa by mutableStateOf(UIStateSiswa())
         private set
 
-    private val idSiswa: Int = checkNotNull(savedStateHandle[DestinasiDetailSiswa.itemIdArg])
-        init{
-            viewModelScope.launch {
-                uiStateSiswa = repositoriSiswa.getSiswaStream(idSiswa)
-                    .filterNotNull()
-                    .first()
-                    .toUiStateSiswa( idEntryValid = true )
-            }
+    private val idSiswa: Int = checkNotNull(savedStateHandle[DestinasiEditSiswa.itemIdArg])
+    init {
+        viewModelScope.launch {
+            uiStateSiswa = repositoriSiswa.getSiswaStream(idSiswa)
+                .filterNotNull()
+                .first()
+                .toUIStateSiswa(isEntryValid = true)
         }
+    }
 
     fun updateUiState(detailSiswa: DetailSiswa) {
         uiStateSiswa =
             UIStateSiswa(detailSiswa = detailSiswa, isEntryValid = validasiInput(uiState = detailSiswa))
     }
 
-    private fun validasiInput(uiState: DetailSiswa = uiStateSiswa.detailSiswa ): Boolean {
+    private fun validasiInput(uiState: DetailSiswa = uiStateSiswa.detailSiswa): Boolean {
         return with (receiver = uiState) {
             nama.isNotBlank() && alamat.isNotBlank() && telpon.isNotBlank()
         }
