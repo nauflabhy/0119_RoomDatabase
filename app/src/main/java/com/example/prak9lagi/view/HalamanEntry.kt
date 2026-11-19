@@ -25,6 +25,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.prak9lagi.R
+import com.example.prak9lagi.uicontroller.DestinasiEntry
 import com.example.prak9lagi.uicontroller.DestinasiNavigasi
 import com.example.prak9lagi.uicontroller.SiswaTopAppBar
 import com.example.prak9lagi.viewmodel.DetailSiswa

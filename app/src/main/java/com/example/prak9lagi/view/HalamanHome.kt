@@ -35,6 +35,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.prak9lagi.R
 import com.example.prak9lagi.room.Siswa
+import com.example.prak9lagi.uicontroller.DestinasiHome
 import com.example.prak9lagi.uicontroller.DestinasiNavigasi
 import com.example.prak9lagi.uicontroller.SiswaTopAppBar
 import com.example.prak9lagi.viewmodel.HomeViewModel

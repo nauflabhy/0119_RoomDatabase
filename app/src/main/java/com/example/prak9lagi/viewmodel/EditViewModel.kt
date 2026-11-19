@@ -1,6 +1,7 @@
 package com.example.prak9lagi.viewmodel
 
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -15,8 +16,8 @@ class EditViewModel(
     private val repositoriSiswa: RepositoriSiswa
 ): ViewModel() {
 
-    var uiStateSiswa by mutableStateOf( value = UIStateSiswa())
-            private set
+    var uiStateSiswa by mutableStateOf(UIStateSiswa())
+        private set
 
     private val idSiswa: Int = checkNotNull(savedStateHandle[DestinasiDetailSiswa.itemIdArg])
         init{
@@ -36,6 +37,14 @@ class EditViewModel(
     private fun validasiInput(uiState: DetailSiswa = uiStateSiswa.detailSiswa ): Boolean {
         return with (receiver = uiState) {
             nama.isNotBlank() && alamat.isNotBlank() && telpon.isNotBlank()
+        }
+    }
+
+    suspend fun updateSiswa() {
+        if (validasiInput(uiStateSiswa.detailSiswa)) {
+            repositoriSiswa.updateSiswa(
+                uiStateSiswa.detailSiswa.toSiswa()
+            )
         }
     }
 }
