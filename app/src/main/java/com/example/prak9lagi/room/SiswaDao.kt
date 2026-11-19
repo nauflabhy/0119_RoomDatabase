@@ -21,5 +21,5 @@ interface SiswaDao {
 
     @Update
     suspend fun update(siswa: Siswa)
-    fun getSiswa(id: Int): Flow<Siswa?>
+    fun getSiswa(id: Int): kotlinx.coroutines.flow.Flow<com.example.prak9lagi.room.Siswa?>
 }
