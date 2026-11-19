@@ -2,6 +2,7 @@ package com.example.prak9lagi.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.createSavedStateHandle
 import androidx.lifecycle.viewmodel.CreationExtras
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
@@ -23,7 +24,7 @@ object PenyediaViewModel {
         }
 
         initializer {
-            EditViewModel( savedStateHandle = this.createSavedStateHandle)
+            EditViewModel( savedStateHandle = this.createSavedStateHandle(), aplikasiSiswa().container.repositoriSiswa)
         }
     }
 }
